@@ -38,12 +38,19 @@ Nesta aula, eu realizei várias alterações no projeto para criar um gerenciado
 ```javascript
 import React from 'react';
 
-const Header = () => {
-  return (
-    <header style={{ textAlign: 'center', backgroundColor: '#282c34', color: 'white', padding: '20px' }}>
-      <h1>Task Manager</h1>
+function Header() {
+return (
+    <header style={headerStyle}>
+    <h1>Gerenciador de tarefas</h1>
     </header>
-  );
+);
+}
+
+const headerStyle = {
+backgroundColor: '#FF0000',
+color: 'white',
+textAlign: 'center',
+padding: '10px',
 };
 
 export default Header;
@@ -69,25 +76,41 @@ export default Header;
 ```javascript
 import React from 'react';
 
-const TaskContainer = () => {
-  const tasks = [
-    { title: 'Estudar React', description: 'Revisar conceitos de React para a aula.' },
-    { title: 'Praticar JavaScript', description: 'Resolver exercícios de JavaScript para reforçar o aprendizado.' }
-  ];
-
+function TaskContainer() {
   return (
-    <div style={{ padding: '10px' }}>
-      {tasks.map((task, index) => (
-        <div key={index} style={{ marginBottom: '10px', border: '1px solid #ccc', padding: '10px' }}>
-          <h3>{task.title}</h3>
-          <p>{task.description}</p>
+    <div style={containerStyle}>
+      <React.Fragment>
+        <div style={taskStyle}>
+          <h3>Tarefa 1: Planejar Viagem para Marte</h3>
+          <p>Definir a lista de equipamentos necessários para a expedição ao planeta vermelho.</p>
         </div>
-      ))}
+        <div style={taskStyle}>
+          <h3>Tarefa 2: Preparar Cardápio Intergaláctico</h3>
+          <p>Elaborar refeições compactas e nutritivas para os astronautas durante a viagem.</p>
+        </div>
+      </React.Fragment>
     </div>
   );
+}
+
+const containerStyle = {
+  margin: '20px auto',
+  padding: '10px',
+  maxWidth: '600px',
+  backgroundColor: '#f4f4f4',
+  borderRadius: '8px',
+};
+
+const taskStyle = {
+  backgroundColor: '#fff',
+  padding: '10px',
+  margin: '10px 0',
+  border: '1px solid #ccc',
+  borderRadius: '4px',
 };
 
 export default TaskContainer;
+
 ```
 
 ## Componente App.js
@@ -104,17 +127,17 @@ export default TaskContainer;
 # Bloco de Código
 ```javascript
 import React from 'react';
-import Header from './Header';
-import TaskContainer from './TaskContainer';
+import Header from './components/Header';
+import TaskContainer from './components/TaskContainer';
 
-const App = () => {
+function App() {
   return (
     <div>
       <Header />
       <TaskContainer />
     </div>
   );
-};
+}
 
 export default App;
 ```
