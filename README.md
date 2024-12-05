@@ -1,8 +1,8 @@
 # Documentação da aula 016
 
 ## Informações Gerais
-- *Data de Execução*: 04/12/2024
-- *Aluno*: Lucas André
+- **Data de Execução**: 04/12/2024
+- **Aluno**: Lucas André
 
 ---
 
@@ -14,85 +14,114 @@
 
 ## Descrição das Alterações
 
-Nesta aula, realizamos várias alterações no projeto para configurar um gerenciador de tarefas utilizando componentes React. As principais mudanças realizadas foram:
+Nesta aula, eu realizei várias alterações no projeto para criar um gerenciador de tarefas utilizando React. As mudanças feitas foram:
 
-- Criamos o componente `Header` para exibir o título "Task Manager".
-- Criamos o componente `TaskContainer` para exibir uma lista de tarefas fictícias, com títulos e descrições.
-- Modificamos o arquivo `App.js` para importar e renderizar os componentes `Header` e `TaskContainer`.
-- Utilizamos **CSS inline** para estilizar os componentes diretamente dentro de cada arquivo, garantindo um layout simples e funcional.
+- Criei o componente `Header`, que exibe o título "Task Manager".
+- Criei o componente `TaskContainer`, que exibe uma lista de tarefas fictícias com títulos e descrições.
+- Modifiquei o arquivo `App.js` para importar e renderizar os componentes `Header` e `TaskContainer`.
+- Utilizei **CSS inline** para estilizar os componentes diretamente dentro de cada arquivo, garantindo um layout simples e funcional.
 
 ---
 
 ## Componente Header.js
 
-*Descrição*: O componente `Header` é responsável por exibir o título do projeto, "Task Manager", na parte superior da aplicação.
+ ***Descrição***: O componente `Header` é responsável por exibir o título "Task Manager" na parte superior da página. Ele serve como um cabeçalho fixo do aplicativo.
 
-### Perguntas e Respostas
+### O que o componente faz?
+- O componente `Header` renderiza o título "Task Manager" e o exibe no topo da página. O título é centralizado e tem uma cor de fundo escura com texto branco, para dar um visual limpo e organizado.
 
-1. **Quais os imports utilizados?**
-   - React: Importa o React necessário para criar o componente.
-   
-2. **O que o componente faz?**
-   - Renderiza um cabeçalho com o título "Task Manager", centralizado na tela e com uma cor de fundo.
+### Como o estilo foi aplicado?
+- O estilo foi aplicado diretamente no componente usando CSS inline. Um objeto JavaScript foi utilizado na propriedade `style`, onde defini o alinhamento do texto (`textAlign`), a cor de fundo (`backgroundColor`), e a cor do texto (`color`).
 
-3. **Como o estilo foi aplicado?**
-   - O estilo foi aplicado diretamente no componente através de um objeto JavaScript, utilizando a propriedade `style`.
+### Bloco de Código
 
----
+```javascript
+import React from 'react';
+
+const Header = () => {
+  return (
+    <header style={{ textAlign: 'center', backgroundColor: '#282c34', color: 'white', padding: '20px' }}>
+      <h1>Task Manager</h1>
+    </header>
+  );
+};
+
+export default Header;
+```
 
 ## Componente TaskContainer.js
 
-*Descrição*: O componente `TaskContainer` é responsável por renderizar as tarefas. Ele contém uma lista de tarefas fictícias, com seus respectivos títulos e descrições.
+***Descrição***: O componente `TaskContainer` é responsável por exibir as tarefas. Ele recebe uma lista de tarefas fictícias e as exibe com seus respectivos títulos e descrições.
 
-### Perguntas e Respostas
+### O que o componente faz?
 
-1. **Quais os imports utilizados?**
-   - React: Necessário para criar o componente e renderizar os elementos JSX.
+- O `TaskContainer` renderiza uma lista de tarefas, com o título e a descrição de cada uma. Cada tarefa é representada por uma `div`, e as informações das tarefas são armazenadas em um array de objetos chamado `tasks`.
 
-2. **Como as tarefas são exibidas?**
-   - As tarefas são renderizadas diretamente no componente como elementos JSX. Cada tarefa é representada por uma `div`, com o título e descrição.
+### Como as tarefas são exibidas?
 
-3. **Por que usamos `React.Fragment`?**
-   - O `React.Fragment` é utilizado para agrupar os elementos das tarefas sem adicionar um nó extra no DOM, mantendo a estrutura limpa.
+- As tarefas são exibidas dinamicamente usando o método `.map()`, que percorre o array de tarefas e renderiza cada tarefa em uma `div`. Cada item tem um título e uma descrição, que são inseridos nas tags `<h3>` e `<p>` respectivamente.
 
-4. **Como o layout foi estilizado?**
-   - Cada tarefa foi estilizada com CSS inline, aplicando uma borda, fundo branco e espaçamento entre os itens.
+### Como o layout foi estilizado?
 
----
+- A estilização foi feita com **CSS inline**, aplicando margens, bordas e espaçamento nas tarefas para deixá-las bem apresentadas. Cada tarefa tem um estilo próprio, com uma borda ao redor e um fundo branco.
 
-## App.js
+# Bloco de Código
+```javascript
+import React from 'react';
 
-*Descrição*: O `App.js` é o ponto de entrada do aplicativo, onde os componentes `Header` e `TaskContainer` são importados e renderizados.
+const TaskContainer = () => {
+  const tasks = [
+    { title: 'Estudar React', description: 'Revisar conceitos de React para a aula.' },
+    { title: 'Praticar JavaScript', description: 'Resolver exercícios de JavaScript para reforçar o aprendizado.' }
+  ];
 
-### Perguntas e Respostas
+  return (
+    <div style={{ padding: '10px' }}>
+      {tasks.map((task, index) => (
+        <div key={index} style={{ marginBottom: '10px', border: '1px solid #ccc', padding: '10px' }}>
+          <h3>{task.title}</h3>
+          <p>{task.description}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-1. **O que o arquivo `App.js` faz?**
-   - Ele importa os componentes `Header` e `TaskContainer` e os exibe na interface.
+export default TaskContainer;
+```
 
-2. **Como o componente `TaskContainer` é renderizado?**
-   - O componente `TaskContainer` é renderizado diretamente no JSX do `App.js`, sem a necessidade de passar dados entre os componentes, pois ele contém dados fixos (tarefas fictícias).
+## Componente App.js
+***Descrição***: O `App.js` é o ponto de entrada do aplicativo. Ele importa os componentes `Header` e `TaskContainer` e os renderiza na interface.
 
----
+### O que o arquivo `App.js` faz?
 
-## Estilização do Projeto
+- O arquivo `App.js` organiza a renderização dos componentes. Ele importa o componente `Header` e o componente `TaskContainer`, e os exibe dentro de uma `div`. O cabeçalho é exibido primeiro, seguido pela lista de tarefas.
 
-A estilização foi feita com CSS inline, diretamente nos componentes, para garantir uma abordagem simples e funcional. Cada componente tem seu estilo único, o que facilita a manutenção e leitura do código.
+### Como o componente `TaskContainer` é renderizado?
 
----
+- O `TaskContainer` é renderizado diretamente no JSX do `App.js`. Ele não recebe dados como props, pois as tarefas estão definidas diretamente dentro do próprio componente.
 
-## Como Rodar o Projeto
+# Bloco de Código
+```javascript
+import React from 'react';
+import Header from './Header';
+import TaskContainer from './TaskContainer';
 
-Para rodar o projeto localmente, siga os seguintes passos:
+const App = () => {
+  return (
+    <div>
+      <Header />
+      <TaskContainer />
+    </div>
+  );
+};
 
-1. **Instalar as dependências:**
-   Se você ainda não instalou as dependências, rode o comando abaixo no terminal:
+export default App;
+```
 
-   ```bash
-   npm install
-
-## Visualização do Projeto
-
-**Aqui está uma captura de tela do projeto em funcionamento:**
-
+# Print do Site funcionando
 ![Print do site](public/site_funcionando.png)
 
+
+# Estilização do Projeto
+A estilização foi feita utilizando CSS inline, ou seja, os estilos foram aplicados diretamente dentro dos componentes React através da propriedade ``style``. Essa abordagem permite uma forma prática e rápida de aplicar estilos, sem a necessidade de arquivos CSS externos. Cada componente tem seus próprios estilos isolados, o que torna o código mais simples e fácil de entender. No entanto, enquanto o CSS inline é eficiente para projetos pequenos, para projetos maiores, pode ser necessário adotar outras estratégias, como o uso de arquivos CSS externos ou bibliotecas de estilização, para garantir melhor organização e escalabilidade do código.
