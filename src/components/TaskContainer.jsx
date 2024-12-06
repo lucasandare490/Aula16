@@ -1,36 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function TaskContainer() {
+const TaskContainer = () => {
+  const [showTasks, setShowTasks] = useState(true);
+  const [showDescription, setShowDescription] = useState({ 1: false, 2: false });
+
+  const tasks = [
+    { id: 1, title: 'Tarefa 1: Estudar React', description: 'Revisar conceitos de React para a aula.' },
+    { id: 2, title: 'Tarefa 2: Praticar JavaScript', description: 'Resolver exercícios de JavaScript para reforçar o aprendizado.' }
+  ];
+
+  const toggleTasks = () => {
+    setShowTasks(!showTasks);
+  };
+
+  const toggleDescription = (id) => {
+    setShowDescription((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
   return (
-    <div style={containerStyle}>
-      <React.Fragment>
-        <div style={taskStyle}>
-          <h3>Tarefa 1: Planejar Viagem para Marte</h3>
-          <p>Definir a lista de equipamentos necessários para a expedição ao planeta vermelho.</p>
-        </div>
-        <div style={taskStyle}>
-          <h3>Tarefa 2: Preparar Cardápio Intergaláctico</h3>
-          <p>Elaborar refeições compactas e nutritivas para os astronautas durante a viagem.</p>
-        </div>
-      </React.Fragment>
+    <div style={{ padding: '10px' }}>
+      <button onClick={toggleTasks} style={{ marginBottom: '20px', padding: '10px' }}>
+        {showTasks ? 'Ocultar todas as tarefas' : 'Mostrar todas as tarefas'}
+      </button>
+      {showTasks &&
+        tasks.map((task) => (
+          <div key={task.id} style={{ marginBottom: '10px', border: '1px solid #ccc', padding: '10px' }}>
+            <h3>{task.title}</h3>
+            <button onClick={() => toggleDescription(task.id)} style={{ marginTop: '10px', padding: '5px' }}>
+              {showDescription[task.id] ? 'Ocultar descrição' : 'Mostrar descrição'}
+            </button>
+            {showDescription[task.id] && <p>{task.description}</p>}
+          </div>
+        ))}
     </div>
   );
-}
-
-const containerStyle = {
-  margin: '20px auto',
-  padding: '10px',
-  maxWidth: '600px',
-  backgroundColor: '#f4f4f4',
-  borderRadius: '8px',
-};
-
-const taskStyle = {
-  backgroundColor: '#fff',
-  padding: '10px',
-  margin: '10px 0',
-  border: '1px solid #ccc',
-  borderRadius: '4px',
 };
 
 export default TaskContainer;
