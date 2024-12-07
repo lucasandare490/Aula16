@@ -124,4 +124,4 @@ A estilização foi feita usando **CSS inline** diretamente nos componentes. Iss
 
 # Print do site funcionando (Atualizado)
 
-![Print do site](public\site_funcionando2.png)
+![alt text](public\captura_de_tela_2024-12-06_212721.png)
