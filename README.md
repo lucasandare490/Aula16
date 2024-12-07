@@ -60,7 +60,7 @@ const TaskContainer = () => {
 };
 
 export default TaskContainer;
-
+```
 ## Extra: Botões para Mostrar ou Esconder Descrições
 
 Além do que foi pedido na atividade, eu adicionei uma funcionalidade extra. Agora, cada tarefa tem um botão que permite mostrar ou esconder a descrição individualmente.
@@ -73,9 +73,7 @@ Além do que foi pedido na atividade, eu adicionei uma funcionalidade extra. Ago
 
 ### Código do Extra
 ```javascript
-
-
-`import React, { useState } from 'react';
+import React, { useState } from 'react';
 
 const TaskContainer = () => {
   const [showTasks, setShowTasks] = useState(true);
