@@ -123,4 +123,4 @@ A estilização foi feita usando **CSS inline** diretamente nos componentes. Iss
 # Print do site funcionando (Atualizado)
 
 ![a](https://github.com/user-attachments/assets/6b4c15ea-b82b-46e2-ab55-f2840cbb1c3a)
-![imagem2](public\b.png)
+![b](https://github.com/user-attachments/assets/74b25f08-f4e7-4617-a3bb-c3416e09eba1)
