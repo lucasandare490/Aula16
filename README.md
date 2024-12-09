@@ -1,31 +1,34 @@
 # Documentação da aula 017
 
 ## Informações Gerais
-- **Data de Execução**: 06/12/2024
-- **Aluno**: Lucas André
 
----
+-   **Data de Execução**: 06/12/2024
+-   **Aluno**: Lucas André
 
-# Atualização do Projeto com Renderização Condicional e Eventos
+----------
+
+## Atualização do Projeto com Renderização Condicional e Eventos
 
 Nesta aula, eu fiz novas mudanças no projeto para praticar **renderização condicional** e **eventos no React**. As principais atualizações foram:
 
-- Adicionei um botão para mostrar ou esconder todas as tarefas e para mostrar e esconder a descrição.
-- Mantive os títulos das tarefas (Tarefa 1 e Tarefa 2) junto com os nomes completos.
-- Usei **CSS inline** para deixar os novos botões e elementos com um visual simples e bem organizado.
+-   Adicionei um botão para mostrar ou esconder todas as tarefas e para mostrar e esconder a descrição.
+-   Alterei todo o design do site.
+-   Usei **CSS inline** para deixar os novos botões e elementos com um visual simples e bem organizado.
 
----
+----------
 
 ## Componente TaskContainer.js
 
 ### O que foi atualizado?
-1. **Mostrar e esconder todas as tarefas**:  
-   Criei um botão que alterna entre mostrar ou esconder todas as tarefas de uma vez.
 
-2. **Manutenção dos títulos**:  
-   Mantive os títulos "Tarefa 1" e "Tarefa 2" ao lado do nome completo das tarefas para manter a organização.
+1.  **Mostrar e esconder todas as tarefas**:  
+    Criei um botão que alterna entre mostrar ou esconder todas as tarefas de uma vez.
+    
+2.  **Manutenção dos títulos**:  
+    Mantive os títulos "Tarefa 1" e "Tarefa 2" ao lado do nome completo das tarefas para manter a organização.
+    
 
----
+----------
 
 ### Código Atualizado
 
@@ -60,7 +63,8 @@ const TaskContainer = () => {
 };
 
 export default TaskContainer;
-```
+```  
+
 ## Extra: Botões para Mostrar ou Esconder Descrições
 
 Além do que foi pedido na atividade, eu adicionei uma funcionalidade extra. Agora, cada tarefa tem um botão que permite mostrar ou esconder a descrição individualmente.
@@ -71,8 +75,10 @@ Além do que foi pedido na atividade, eu adicionei uma funcionalidade extra. Ago
 2.  Adicionei botões individuais para cada tarefa, com texto que muda entre "Mostrar descrição" e "Ocultar descrição".
 3.  Usei **renderização condicional** para que as descrições só apareçam quando o botão for clicado.
 
-### Código do Extra
+### Código
+
 ```javascript
+
 import React, { useState } from 'react';
 
 const TaskContainer = () => {
@@ -113,14 +119,30 @@ const TaskContainer = () => {
 
 export default TaskContainer;
 ```
-
 ----------
 
 ## Estilização do Projeto
 
 A estilização foi feita usando **CSS inline** diretamente nos componentes. Isso deixou o código mais simples e fácil de entender. Cada botão tem padding e margens para melhorar a organização visual e a usabilidade.
 
-# Print do site funcionando (Atualizado)
+----------
 
-![a](https://github.com/user-attachments/assets/6b4c15ea-b82b-46e2-ab55-f2840cbb1c3a)
-![b](https://github.com/user-attachments/assets/74b25f08-f4e7-4617-a3bb-c3416e09eba1)
+## Mudanças de Design
+
+Além das funcionalidades básicas pedidas, eu também fiz várias melhorias no design para deixar o site mais organizado e agradável de usar. Entre as mudanças:
+
+1.  **Fundo**: Usei um tom suave de azul (#F0F8FF).
+2.  **Botões**: Tornei os botões mais atrativos, com cores como #1E90FF (azul vivo) e #4682B4 (azul médio).
+3.  **Caixas de Tarefas**: Adicionei bordas arredondadas e mais espaçamento entre os itens. A largura das  
+caixas foi ajustada para ficarem mais estreitas, criando um layout mais moderno e limpo.
+4. **Centralização**: Centralizei todos os elementos na tela para melhorar a visualização.
+5. **Adição de `border-bottom`**:  
+Adicionei uma **borda inferior** (`border-bottom`) nas caixa principal. Essa borda separa o tema do site das tarefas de forma mais clara, melhorando a leitura e a organização. A borda foi aplicada com a cor `#FFD700` para dar um contraste.
+----------
+
+## Prints do site funcionando
+
+![print2](https://github.com/user-attachments/assets/632068bc-534c-46e7-97b4-d630e021cfe5)
+
+
+![print1](https://github.com/user-attachments/assets/d6dbaf64-3653-49ec-ba1c-3a4b593d1e0e)
